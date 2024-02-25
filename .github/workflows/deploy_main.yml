@@ -1,0 +1,21 @@
+name: "Deploy production env"
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+      steps:
+      - uses: actions/checkout@master 
+      - name: List files
+        run: ls
+      - name: Deploy
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0 
+        env: 
+          FTP_SERVER: ${{ secrets.FTP_SERVER }} 
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          LOCAL_DIR: AddressableAssets 
+          REMOTE_DIR: /var/www/html/download.betta.fortuna.jp/public/assets/
+          ARGS: --delete
