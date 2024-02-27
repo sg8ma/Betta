@@ -17,6 +17,6 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_SERVER }} 
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          LOCAL_DIR: AddressableAssets 
-          REMOTE_DIR: /var/www/html/download.betta.fortuna.jp/public/assets/
-          ARGS: --delete
+          LOCAL_DIR: Addressables 
+          REMOTE_DIR: /var/www/html/download.betta.fortuna.jp/public/
+          ARGS: --delete --parallel=8
